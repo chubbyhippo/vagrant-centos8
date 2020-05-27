@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
     sudo dnf group install "Development Tools" -y
     sudo dnf install vim tmux python3 python3-devel java -y
     sudo runuser -l vagrant -c "python3 -m venv ~/env"
-    sudo runuser -l vagrant -c "ssh-keygen -b 2048 -t rsa -f /tmp/sshkey -q -N ''"
+    sudo runuser -l vagrant -c "ssh-keygen -b 2048 -t rsa -f /home/vagrant/.ssh/id_rsa -q -N ''"
     curl https://raw.githubusercontent.com/chubbyhippo/vimrc/master/.vimrc -o /home/vagrant/.vimrc
   SHELL
  end
