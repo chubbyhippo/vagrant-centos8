@@ -20,9 +20,13 @@ Vagrant.configure("2") do |config|
       # install nodejs
       curl -sL https://deb.nodesource.com/setup_12.x | bash -
       sudo dnf install nodejs -y
+      sudo runuser -l vagrant -c "mkdir ~/.npm-global"
+      sudo runuser -l vagrant -c "npm config set prefix '~/.npm-global'"
+      sudo runuser -l vagrant -c "echo 'export PATH=~/.npm-global/bin:$PATH' > ~/.profile"
+      sudo runuser -l vagrant -c "source ~/.profile"
       
       # install angular cli
-      sudo npm install -g @angular/cli
+      npm install -g @angular/cli
 
     SHELL
    end
