@@ -22,8 +22,7 @@ Vagrant.configure("2") do |config|
       sudo dnf install nodejs -y
       sudo runuser -l vagrant -c "mkdir ~/.npm-global"
       sudo runuser -l vagrant -c "npm config set prefix '~/.npm-global'"
-      sudo runuser -l vagrant -c "echo 'export PATH=~/.npm-global/bin:$PATH' > ~/.profile"
-      sudo runuser -l vagrant -c "source ~/.profile"
+      sudo runuser -l vagrant -c "echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc"
 
     SHELL
    end
