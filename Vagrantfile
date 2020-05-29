@@ -1,6 +1,7 @@
 Vagrant.configure("2") do |config|
     config.vm.box = "centos/8"
     config.vm.box_version = "1905.1"
+    config.vm.synced_folder ".", "/vagrant", disabled: true
     config.vm.network "forwarded_port", guest: 800, host: 8000
     config.vm.provision "shell", inline: <<-SHELL
       sudo dnf update -y
