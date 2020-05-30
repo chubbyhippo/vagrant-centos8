@@ -6,10 +6,11 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo dnf update -y
     sudo dnf group install "Development Tools" -y
-    sudo dnf install tmux flatpak -y
-    sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    sudo flatpak install flathub org.vim.Vim -y
-    echo "alias vim='flatpak run org.vim.Vim'" >> /home/vagrant/.bashrc
+    sudo dnf install tmux vim -y
+    # sudo dnf install flatpak -y
+    # sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    # sudo flatpak install flathub org.vim.Vim -y
+    # echo "alias vim='flatpak run org.vim.Vim'" >> /home/vagrant/.bashrc
     sudo runuser -l vagrant -c "curl https://raw.githubusercontent.com/chubbyhippo/vimrc/master/.vimrc -o ~/.vimrc"
     sudo runuser -l vagrant -c "ssh-keygen -t ed25519 -f /home/vagrant/.ssh/id_ed25519 -q -N ''"
 
